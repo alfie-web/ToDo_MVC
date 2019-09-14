@@ -1,0 +1,128 @@
+* {
+            font-family: 'Tahoma', sans-serif;
+}
+
+:root {
+            --accent-color: #7259b5;
+}
+
+body {
+            background-color: #f7f7f8;
+}
+
+.container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 90px 0;
+}
+
+.todos-info {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+}
+
+
+.todos-items {
+            margin: 50px 0;
+}
+
+.todos-item {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 960px;
+            background-color: #fff;
+            box-shadow: 0 14px 40px 0 rgba(32, 33, 36, .05);
+}
+
+.todos-item .todos-item__title {
+            width: 70%;
+}
+
+.todos-item .todos-item__actions {
+            display: flex;
+            justify-content: flex-end;
+            width: 30%;
+}
+
+.todos-item input.todos-item__input {
+            font-size: 16px;
+            width: 70%;
+            outline: none;
+            border: none;
+            padding: 0;
+            /* border: 2px solid #eee; */
+            background-color: transparent;
+            /* transition: border .3s; */
+}
+
+.todos-item input.todos-item__input, .todos-item.editing .todos-item__title {
+            display: none;
+}
+
+.todos-item.completed .todos-item__title {
+            text-decoration: line-through;
+            color: #8E95A0;
+}
+
+.todos-item.editing input.todos-item__input {
+            display: block;
+}
+
+.todos-item.completed .completeBtn, .todos-item.editing .editBtn {
+            color: var(--accent-color);
+}
+
+#addTodo input.text {
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            border: 2px solid #eee;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: transparent;
+            transition: border .3s;
+}
+
+#addTodo input.text:focus {
+            border: 2px solid var(--accent-color);
+}
+
+.todos-item .task-btn {
+            margin-left: 20px;
+            user-select: none;
+            cursor: pointer;
+            color: #8E95A0;
+            transition: color .3s;
+}
+
+.todos-item .task-btn:first-child {
+            margin-left: 0;
+}
+
+.todos-item span:hover {
+            color: var(--accent-color);
+}
+
+.btn {
+            cursor: pointer;
+            padding: 12px 30px 14px;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            border: none;
+            color: white;
+            background-color: var(--accent-color);
+            user-select: none;
+}
