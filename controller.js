@@ -1,3 +1,4 @@
+
 ;(function(window) {
 
 	class Controller extends EventEmmitter {
@@ -44,7 +45,8 @@
 				title: taskInfo.title,
 				isCompleted: false,
 			});
-			this.view.addTask(task, this.model.getState().activeSort);
+			
+			this.view.addTask(task);
 
 			// this.view.filterTasks(this.model.getState().activeFilter);
 
@@ -65,6 +67,7 @@
 		}
 
 		editTask (taskInfo) {
+			console.log(taskInfo);
 			this.model.editTask(taskInfo.id, taskInfo.title);
 			this.view.editTask(taskInfo.elem, taskInfo.title);
 		}
@@ -72,7 +75,8 @@
 		filterTasks (type) {
 			const tasks = this.model.filterTasks(type);
 			
-			this.view.filterTasks(tasks, type);
+			this.view.filterTasks(type);
+			this.view.renderTasks(tasks);
 			this.view.renderTotalTasksNumber(tasks.length);
 		}
 
@@ -123,6 +127,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// Фильтр во View
 // ;(function(window) {
 
 // 	class Controller extends EventEmmitter {

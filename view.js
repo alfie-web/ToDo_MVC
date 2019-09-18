@@ -1,3 +1,4 @@
+
 ;(function(window, document) {
 
 	class View extends EventEmmitter {
@@ -117,6 +118,7 @@
 				props.elem.classList.remove('editing');
 				// props.btn.textContent = 'edit';
 				props.btn.innerHTML = '<i class="fa fa-pencil"></i>';
+				console.log(props);
 				this.emit('edit', {elem: props.elem, id: props.id, title: input.value});
 			}
 		}
@@ -125,7 +127,7 @@
 
 
 		// --- Основные операции с задачей ---
-		addTask (taskInfo, sortType) {	// Доработать функцию createElement
+		addTask (taskInfo) {	// Доработать функцию createElement
 			const taskEditBtn = createElement('span', ['editBtn', 'task-btn'], {'data-action': 'edit'}, createElement('i', ['fa', 'fa-pencil']));
 			const taskCompleteBtn = createElement('span', ['completeBtn', 'task-btn'], {'data-action': 'complete'}, createElement('i', ['fa', 'fa-check']));
 			const taskDeleteBtn = createElement('span', ['deleteBtn', 'task-btn'], {'data-action': 'delete'}, createElement('i', ['fa', 'fa-close']));
@@ -165,7 +167,7 @@
 			this.tasksElem.innerHTML = '';
 
 			tasks.forEach(function(task) {
-				self.addTask(task, sortType);
+				self.addTask(task);
 			});
 		}
 
@@ -212,8 +214,8 @@
 			}
 		}
 
-		filterTasks (tasks, type) {
-			this.renderTasks(tasks);
+		filterTasks (type) {
+			// this.renderTasks(tasks);
 			this.setActiveOption (this.filterSelect.options, type, 'filter');
 		}
 
@@ -283,9 +285,7 @@
 
 
 
-
-
-
+// Фильтр только во View
 // ;(function(window, document) {
 
 // 	class View extends EventEmmitter {

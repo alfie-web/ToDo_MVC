@@ -29,11 +29,11 @@
 		addTask (item) {
 			if (this._state.tasks.length > this._state.tasksLimit) return; //Максимум 100 задач
 			
-			if (this._state.activeSort === 'new') {
-				this._state.tasks.unshift(item);	
-			} else if (this._state.activeSort === 'old') {
+			// if (this._state.activeSort === 'new') {
+			// 	this._state.tasks.unshift(item);	
+			// } else if (this._state.activeSort === 'old') {
 				this._state.tasks.push(item);	
-			}
+			// }
 
 			this.emit('change');
 			return item;
