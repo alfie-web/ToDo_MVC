@@ -1,8 +1,15 @@
 
 ;(function(window) {
+	let instance;
 	
 	class App {
 		constructor(props) {
+			if (!instance) {
+				instance = this;
+			} else {
+				return instance;
+			}
+
 			this.initialState = loadFromLocalStorage('state') || {
 				tasks: [	// Можно удалить, это 2 задачи по умолчанию
 					{id: 0, title: 'Test task1', isCompleted: false},
