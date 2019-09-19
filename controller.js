@@ -7,26 +7,14 @@
 			this.model = model;
 			this.view = view;
 
-			// this.changedTasks = model.filterTasks();
-
 			this.init(this.model, this.view);
 		}
 
 		init (model, view) {
 			const state = model.getState();
-			// const tasks = state.tasks;
 
-
-			// const tasks = model.filterTasks(state.activeFilter);	// Нижние 3 строки можно как-то спрятать в метод filterTasks
-			// this.view.filterTasks(state.activeFilter);	
-			// if (tasks) view.renderTasks(tasks, 'old');	// Первый рендер должен отрисовывать сверху вниз
-			
 			this.filterTasks(state.activeFilter);
-
-			this.sortTasks (state.activeSort);
-
-			// view.renderTotalTasksNumber(state.tasks.length);
-			// view.renderTotalTasksNumber(tasks.length);
+			this.sortTasks(state.activeSort);
 
 			model.on('change', function() {
 				saveInLocalStorage('state', state);
@@ -47,15 +35,11 @@
 				isCompleted: false,
 			});
 			
-			this.view.addTask(task);
+			this.view.addTask(task, this.model.getState().activeSort);
 
 			this.view.renderTasks(this.model.filterTasks(this.model.getState().activeFilter), this.model.getState().activeSort);	// Перерендериваю
-			
-			
-			// this.view.filterTasks(this.model.getState().activeFilter);
-
-			// this.model.filterTasks(this.model.getState().activeFilter);
-			// this.view.renderTasks(this.model.sortTasks());	// Перерендериваю
+			this.view.renderTotalTasksNumber(this.model.getState().filteredTasks.length);
+			// this.filterTasks(this.model.getState().activeFilter);	// Можно и так (но лишние операции)
 		}
 
 		removeTask (taskInfo) {
@@ -66,11 +50,12 @@
 		completeTask (taskInfo) {
 			this.model.completeTask(taskInfo.id);
 			this.view.completeTask(taskInfo.elem, taskInfo.isCompleted);
-			this.view.filterTasks(this.model.getState().activeFilter);
+
+			this.view.renderTasks(this.model.filterTasks(this.model.getState().activeFilter), this.model.getState().activeSort);	// Перерендериваю
+			// this.filterTasks(this.model.getState().activeFilter);	// Можно и так (но лишние операции)
 		}
 
 		editTask (taskInfo) {
-			console.log(taskInfo);
 			this.model.editTask(taskInfo.id, taskInfo.title);
 			this.view.editTask(taskInfo.elem, taskInfo.title);
 		}
@@ -79,7 +64,6 @@
 			const tasks = this.model.filterTasks(type);
 			
 			this.view.filterTasks(type);
-			// this.view.renderTasks(tasks);
 			this.view.renderTasks(tasks, this.model.getState().activeSort);
 			this.view.renderTotalTasksNumber(tasks.length);
 		}
@@ -88,6 +72,7 @@
 			this.model.sortTasks(type);
 			this.view.sortTasks(type);
 			this.view.renderTasks(this.model.getState().filteredTasks, type);
+			this.view.renderTotalTasksNumber(this.model.getState().filteredTasks.length);
 		}
 
 
