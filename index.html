@@ -88,24 +88,22 @@
 
 		<div class="todos-info">
 			<p>Total tasks: <span class="totalTasks"></span></p>
-			<form class="tasks-sort">
-				<select class="tasks-sort__wrap tasks-filter">
-					<option data-filter="all">All</option>
-					<option data-filter="active">Active</option>
-					<option data-filter="completed">Completed</option>
-				</select>
-				<!-- <select class="tasks-sort__wrap tasks-sort"> -->
-					<!-- <option data-filter="new">New first</option> -->
-					<!-- <option data-filter="old">Old first</option> -->
-					<!-- <option>Active first</option>
-					<option>Completed first</option> -->
-				<!-- </select> -->
-				<select class="tasks-sort__wrap tasks-sort">
-					<option data-sort="new">New first</option>
-					<option data-sort="old">Old first</option>
-					<!-- <option>Active first</option>
-					<option>Completed first</option>  -->
-				</select>
+			<form class="tasks-sort-filter">
+				<div class="tasks-select__wrap">
+					<select class="tasks-filter">
+						<option data-filter="all">All</option>
+						<option data-filter="active">Active</option>
+						<option data-filter="completed">Completed</option>
+					</select>
+					<span class="tasks-select__caret"><i class="fa fa-angle-down"></i></span>
+				</div>
+				<div class="tasks-select__wrap">
+					<select class="tasks-sort">
+						<option data-sort="new">New first</option>
+						<option data-sort="old">Old first</option>
+					</select>
+					<span class="tasks-select__caret"><i class="fa fa-angle-down"></i></span>
+				</div>
 			</form>	
 		</div>
 

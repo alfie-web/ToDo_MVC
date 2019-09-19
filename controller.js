@@ -172,8 +172,13 @@
 				isCompleted: false,
 			});
 
-			this.view.addTask(task, this.model.getState().activeSort);
-			this.view.filterTasks(this.model.getState().activeFilter);	// Перефильтровываю
+			if (task) {
+				this.view.addTask(task, this.model.getState().activeSort);
+				this.view.filterTasks(this.model.getState().activeFilter);	// Перефильтровываю
+			} else {
+				alert('Превышен лимит');
+			}
+
 		}
 
 		removeTask (taskInfo) {

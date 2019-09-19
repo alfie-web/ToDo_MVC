@@ -137,7 +137,7 @@
 			super();
 			this._state = initialState;
 
-			this._state.tasksLimit = 100;
+			this._state.tasksLimit = 10;
 			this._state.activeFilter = initialState.activeFilter || 'all';	// all, active, completed
 			this._state.activeSort = initialState.activeSort || 'old';	// new, old
 		}
@@ -150,11 +150,11 @@
 		addTask (item) {
 			if (this._state.tasks.length > this._state.tasksLimit) return; //Максимум 100 задач
 			
-			if (this._state.activeSort === 'new') {
-				this._state.tasks.unshift(item);	
-			} else if (this._state.activeSort === 'old') {
+			// if (this._state.activeSort === 'new') {
+			// 	this._state.tasks.unshift(item);	
+			// } else if (this._state.activeSort === 'old') {
 				this._state.tasks.push(item);	
-			}
+			// }
 
 			this.emit('change');
 			return item;
