@@ -137,9 +137,9 @@
 			super();
 			this._state = initialState;
 
-			this._state.tasksLimit = 10;
-			this._state.activeFilter = initialState.activeFilter || 'all';	// all, active, completed
-			this._state.activeSort = initialState.activeSort || 'old';	// new, old
+			// this._state.tasksLimit = 10;
+			// this._state.activeFilter = initialState.activeFilter || 'all';	// all, active, completed
+			// this._state.activeSort = initialState.activeSort || 'old';	// new, old
 		}
 
 		getState () {

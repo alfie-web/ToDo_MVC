@@ -5,80 +5,6 @@
 	<title>Simple ToDo App with MVC</title>
 
 	<link rel="stylesheet" href="libs/fontawesome/font-awesome.min.css">
-	<!-- <style>
-		.tasks-sort select {
-		pointer-events: none; }
-		.tasks-sort__wrap {
-		position: relative; 
-		margin-left: 20px;
-		}
-		.tasks-sort__wrap:after {
-		content: '\f107';
-		position: absolute;
-		top: 0;
-		right: 0;
-		font: 22px "FontAwesome";
-		-webkit-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		transform: rotate(0deg);
-		-webkit-transition: -webkit-transform .2s;
-		transition: -webkit-transform .2s;
-		-o-transition: transform .2s;
-		transition: transform .2s;
-		transition: transform .2s, -webkit-transform .2s;
-		color: #ccc;
-		pointer-events: none; }
-		.tasks-sort__wrap.opened:after {
-		-webkit-transform: rotate(180deg);
-		-ms-transform: rotate(180deg);
-		transform: rotate(180deg); }
-		.tasks-sort__wrap.opened .jq-selectbox__select-text {
-		color: #7259b5; }
-		.tasks-sort .jq-selectbox__select {
-		padding-right: 30px;
-		text-align: right;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-		cursor: pointer; }
-		.tasks-sort .jq-selectbox__select:hover .jq-selectbox__select-text {
-		color: #7259b5; }
-		.tasks-sort .jq-selectbox__select-text {
-		color: #1a1b1f;
-		-webkit-transition: color .3s;
-		-o-transition: color .3s;
-		transition: color .3s; }
-		.tasks-sort .jq-selectbox__dropdown {
-		margin-top: 20px;
-		margin-left: -15px;
-		padding: 20px 30px;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-		background-color: #fff;
-		-webkit-border-radius: 10px;
-		border-radius: 10px;
-		-webkit-box-shadow: 0 16px 27px 0 rgba(26, 27, 31, 0.1);
-		box-shadow: 0 16px 27px 0 rgba(26, 27, 31, 0.1);
-		-webkit-transition: opacity .4s;
-		-o-transition: opacity .4s;
-		transition: opacity .4s;
-		z-index: 200; }
-		.tasks-sort .jq-selectbox__dropdown ul {
-			padding-left: 0;
-			margin: 0;
-		}
-		.tasks-sort .jq-selectbox__dropdown ul li {
-		padding: 8px 0;
-		cursor: pointer;
-		-webkit-transition: color .3s;
-		-o-transition: color .3s;
-		transition: color .3s; }
-		.tasks-sort .jq-selectbox__dropdown ul li:hover {
-		color: #7259b5; }
-		.tasks-sort .jq-selectbox__dropdown ul .selected, .tasks-sort .jq-selectbox__dropdown ul .sel {
-		pointer-events: none;
-		color: #8E95A0; }
-	</style> -->
-
 	<link rel="stylesheet" href="todo.css">
 </head>
 <body>
@@ -121,6 +47,14 @@
 	<script src="model.js"></script>
 	<script src="view.js"></script>
 	<script src="controller.js"></script>
-	<script src="index.js"></script>
+	<script src="app.js"></script>
+
+	<script>
+		const app = new App({
+			tasksLimit: 100,
+			activeFilter: 'all',
+			activeSort: 'old'
+		});
+	</script>
 </body>
 </html>
