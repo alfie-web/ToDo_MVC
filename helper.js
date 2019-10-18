@@ -49,12 +49,12 @@ function createElement (tagName , classes = [], attrs = {}, childs = '') {
 	return tag;
 }
 
-function saveInLocalStorage (name, data) {
+function saveInLocalStorage (key, data) {
 	data = JSON.stringify(data);
-	localStorage.setItem(name, data);
+	localStorage.setItem(key, data);
 }
 
-function loadFromLocalStorage (name) {
-	let data = localStorage.getItem(name);
+function loadFromLocalStorage (key) {
+	let data = localStorage.getItem(key);
 	return JSON.parse(data);
 }

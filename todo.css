@@ -165,3 +165,39 @@ body {
 .tasks-sort-filter select:focus ~ .tasks-select__caret {
             transform: rotate(180deg);
 }
+
+
+.alerts-wrap {
+            position: fixed;
+            pointer-events: none;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+}
+
+.alerts-items {
+            position: relative;
+            width: 100%;
+            max-width: 960px;
+            height: 100vh;
+            margin: 0 auto;
+}
+
+.alert {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            color: #000;
+            border-radius: 5px;
+            font-size: 16px;
+}
+
+.alert-error { background-color: rgba(237, 28, 36, .2); }
+.alert-warning { background-color: rgba(226, 222, 61, .2); }
+.alert-success { background-color: rgba(34, 177, 76, .2); }
+.alert-info { background-color: rgba(0, 162, 232, .2); }
